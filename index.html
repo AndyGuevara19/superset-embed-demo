@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Superset Embed</title>
+  <script src="https://unpkg.com/@superset-ui/embedded-sdk"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    #dashboard-container {
+      width: 100%;
+      height: 800px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dashboard Superset Embebido</h1>
+  <div id="dashboard-container"></div>
+
+  <script>
+    window.supersetEmbeddedSdk.embedDashboard({
+      id: "65397abe-34bb-4891-8734-d313ae6ecfcd", // ID del dashboard
+      supersetDomain: "https://219749510c63.ngrok-free.app", // tu URL de ngrok activa
+      mountPoint: document.getElementById("dashboard-container"),
+      fetchGuestToken: () =>
+        Promise.resolve({
+          access_token: "guest:embed", // permite acceso sin login
+        }),
+      dashboardUiConfig: {
+        hideTitle: false,
+        hideChartControls: true,
+      },
+    });
+  </script>
+</body>
+</html>
