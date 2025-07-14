@@ -4,26 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Embebido</title>
-  <script src="https://unpkg.com/@superset-ui/embedded-sdk"></script>
+  <style>
+    body, html {
+      margin: 0;
+      height: 100%;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
 </head>
 <body>
-  <h1>Dashboard Embebido con SDK</h1>
-  <div id="superset-container" style="height: 90vh;"></div>
-
-  <script>
-    const guestToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiZ3Vlc3QiLCJmaXJzdF9uYW1lIjoiR3Vlc3QiLCJsYXN0X25hbWUiOiJVc2VyIn0sInJlc291cmNlcyI6W3sidHlwZSI6ImRhc2hib2FyZCIsImlkIjoiOCJ9XSwicmxzX3J1bGVzIjpbXSwiaWF0IjoxNzUyNDYxMjg3LjU5MzUwMSwiZXhwIjoxNzUyNDYxNTg3LjU5MzUwMSwiYXVkIjoiaHR0cDovLzAuMC4wLjA6ODA4MC8iLCJ0eXBlIjoiZ3Vlc3QifQ.E2VqWAUeaTCDjhPjHHNuUFWnn_B1eASTMMzgqHLSWHk"; // Tu token aquí
-    SupersetEmbed.embedDashboard({
-      id: "8", // Dashboard ID
-      supersetDomain: "https://7cdfd56dd98c.ngrok-free.app", // Tu URL pública de Superset
-      mountPoint: document.getElementById("superset-container"),
-      fetchGuestToken: () => Promise.resolve(guestToken),
-      dashboardUiConfig: {
-        hideTitle: false,
-        hideChartControls: false,
-      },
-    });
-  </script>
+  <h1>Dashboard embebido</h1>
+  <iframe 
+    src="https://7cdfd56dd98c.ngrok-free.app/superset/dashboard/8/?standalone=1&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.abc123.def456"
+    allowfullscreen>
+  </iframe>
 </body>
 </html>
+
 
 
